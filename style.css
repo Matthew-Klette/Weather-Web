@@ -10,18 +10,21 @@ body {
     background-size: cover;
     height: 100vh;
     color: white;
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
 }
 
 html {
     height: 100%;
 }
 
+/* Ensure weather app content fits in the screen */
 .weather-app {
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 20px;
-    max-width: 600px;
-    width: 100%;
-    margin: 0 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 /* Inputs and Buttons */
@@ -38,7 +41,9 @@ input,
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
+    /* Ensure input and button are full-width */
     max-width: 300px;
+    /* Restrict max width */
 }
 
 input:focus,
@@ -51,27 +56,17 @@ input:focus,
     transform: translateY(2px);
 }
 
-/* Error and Weather Info */
-#error{
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0);
-}
+/* Weather Info */
 #weather {
     margin-top: 20px;
     padding: 10px;
     border-radius: 8px;
-    background-color: rgba(228, 228, 228, 0.868);
-}
-
-#error {
-    color: red;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Header */
 .twelve h1 {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     margin: 0 auto 20px;
     text-transform: uppercase;
@@ -97,7 +92,7 @@ input:focus,
     }
 
     .twelve h1 {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .weather-icon {
@@ -108,7 +103,12 @@ input:focus,
 
 @media (max-width: 480px) {
     .twelve h1 {
-        font-size: 24px;
+        font-size: 20px;
+    }
+
+    input,
+    .button {
+        padding: 12px;
     }
 
     .weather-icon {
