@@ -1,0 +1,118 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-image: url("weather.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    color: white;
+}
+
+html {
+    height: 100%;
+}
+
+.weather-app {
+    margin-top: 50px;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Inputs and Buttons */
+input,
+.button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 2px solid #8b93f8;
+    margin: 10px 5px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #0011ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+input:focus,
+.button:hover {
+    background-color: #d4d8ff;
+    outline: none;
+}
+
+.button:active {
+    transform: translateY(2px);
+}
+
+/* Error and Weather Info */
+#error{
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0);
+}
+#weather {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(228, 228, 228, 0.868);
+}
+
+#error {
+    color: red;
+}
+
+/* Header */
+.twelve h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0 auto 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .weather-app {
+        margin-top: 30px;
+    }
+
+    input,
+    .button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    .twelve h1 {
+        font-size: 28px;
+    }
+
+    .weather-icon {
+        width: 100%;
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .twelve h1 {
+        font-size: 24px;
+    }
+
+    .weather-icon {
+        width: 100%;
+        max-width: 120px;
+    }
+}
