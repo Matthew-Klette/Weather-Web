@@ -1,56 +1,61 @@
-const apiKey = "9552c40513c2d88c91fe735dfe7e2882"; // Your API Key
+const apiKey = "a72818d3e7534732ad9205151240512";  // Replace with your actual WeatherAPI key
 
-// Function to fetch weather data
+// Function to fetch weather data from WeatherAPI
 async function getWeather(city) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    // Construct the URL for WeatherAPI
+    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(city)}&aqi=no`;
 
     try {
         const response = await fetch(url);
         const data = await response.json();
+        console.log(data);  // Log the full response for debugging
 
-        if (data.cod !== 200) {
-            throw new Error(data.message); // Handle API error
+        // Check if the city is valid
+        if (data.error) {
+            throw new Error(data.error.message);  // Show error message if city is not found
         }
 
-        displayWeather(data);
+        displayWeather(data);  // Display weather data
     } catch (error) {
-        displayError(error.message);
+        displayError(error.message);  // Display error message if something goes wrong
     }
 }
 
 // Function to display weather data
 function displayWeather(data) {
-    const { name, main, weather } = data;
-    const temperature = main.temp;
-    const description = weather[0].description;
-    const icon = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`; // OpenWeatherMap Icon
+    const { location, current } = data;
+    const temperature = current.temp_c;  // Current temperature in Celsius
+    const description = current.condition.text;  // Weather condition description
+    const icon = current.condition.icon;  // Icon for the weather condition
 
-    // Display data in HTML
+    // Display the data in HTML
     document.getElementById("weather").innerHTML = `
-        <h2 style="color: Purple;">Weather in ${name}</h2>
+        <h2 style="color: Purple;">Weather in ${location.name}</h2>
         <div class="icon-container">
-            <img src="${icon}" alt="${description}" class="weather-icon">
+            <img src="https:${icon}" alt="${description}" class="weather-icon">
         </div>
         <p style="color: purple;"><strong>Temperature:</strong> ${temperature}°C</p>
         <p style="color: purple;"><strong>Description:</strong> ${description}</p>
     `;
-    document.getElementById("error").innerHTML = ""; // Clear previous errors
+    document.getElementById("error").innerHTML = "";  // Clear previous errors
 }
 
 // Function to display error messages
 function displayError(message) {
     document.getElementById("error").innerHTML = `<p style="color: red;"><strong>Error:</strong> ${message}</p>`;
-    document.getElementById("weather").innerHTML = ""; // Clear previous weather data
+    document.getElementById("weather").innerHTML = "";  // Clear previous weather data
 }
 
 // Event listener for button click
 document.getElementById("searchBtn").addEventListener("click", () => {
     const city = document.getElementById("cityInput").value.trim();
 
+    // Check if the city input is empty
     if (!city) {
         displayError("Please enter a city name.");
         return;
     }
 
+    // Call the API to get weather data
     getWeather(city);
 });
