@@ -97,7 +97,7 @@ input:focus,
 
     .weather-icon {
         width: 100%;
-        max-width: 150px;
+        max-width: 15px;
     }
 }
 
