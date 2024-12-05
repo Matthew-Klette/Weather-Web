@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
     margin: 0;
     padding: 0;
@@ -32,26 +32,32 @@ input,
 .button {
     padding: 12px 20px;
     font-size: 16px;
+    font-weight: bold; /* Make the font bold */
+    color: #0011ff; /* Blue text color */
     border-radius: 25px;
-    border: 2px solid #8b93f8;
+    border: 5px solid #8b93f8;
     margin: 10px 5px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.9);
-    color: #0011ff;
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
     /* Ensure input and button are full-width */
     max-width: 300px;
     /* Restrict max width */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Thicker shadow effect */
 }
 
-input:focus,
+/* Hover Effect */
+input:hover,
 .button:hover {
-    background-color: #d4d8ff;
+    background-color: #ead4ff;
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
     outline: none;
+    transform: scale(1.05); /* Slightly enlarge input and button */
 }
 
+/* Active Button Effect */
 .button:active {
     transform: translateY(2px);
 }
