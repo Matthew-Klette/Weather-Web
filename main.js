@@ -25,8 +25,13 @@ async function getWeather(city) {
 function displayWeather(data) {
     const { location, current } = data;
     const temperature = current.temp_c;  // Current temperature in Celsius
+    const feelsLike = current.feelslike_c;  // Feels-like temperature in Celsius
     const description = current.condition.text;  // Weather condition description
     const icon = current.condition.icon;  // Icon for the weather condition
+    const humidity = current.humidity;  // Humidity percentage
+    const windSpeed = current.wind_kph;  // Wind speed in km/h
+    const uvIndex = current.uv;  // UV index
+    const localTime = location.localtime;  // Local time of the location
 
     // Display the data in HTML
     document.getElementById("weather").innerHTML = `
@@ -35,7 +40,12 @@ function displayWeather(data) {
             <img src="https:${icon}" alt="${description}" class="weather-icon">
         </div>
         <p style="color: purple;"><strong>Temperature:</strong> ${temperature}°C</p>
+        <p style="color: purple;"><strong>Feels Like:</strong> ${feelsLike}°C</p>
         <p style="color: purple;"><strong>Description:</strong> ${description}</p>
+        <p style="color: purple;"><strong>Humidity:</strong> ${humidity}%</p>
+        <p style="color: purple;"><strong>Wind Speed:</strong> ${windSpeed} km/h</p>
+        <p style="color: purple;"><strong>UV Index:</strong> ${uvIndex}</p>
+        <p style="color: purple;"><strong>Local Time:</strong> ${localTime}</p>
     `;
     document.getElementById("error").innerHTML = "";  // Clear previous errors
 }
