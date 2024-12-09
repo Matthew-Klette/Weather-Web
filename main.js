@@ -35,17 +35,17 @@ function displayWeather(data) {
 
     // Display the data in HTML
     document.getElementById("weather").innerHTML = `
-        <h2 style="color: Purple;">Weather in ${location.name}</h2>
+        <h2 style="color:  white;">Weather in ${location.name}</h2>
         <div class="icon-container">
             <img src="https:${icon}" alt="${description}" class="weather-icon">
         </div>
-        <p style="color: purple;"><strong>Temperature:</strong> ${temperature}°C</p>
-        <p style="color: purple;"><strong>Feels Like:</strong> ${feelsLike}°C</p>
-        <p style="color: purple;"><strong>Description:</strong> ${description}</p>
-        <p style="color: purple;"><strong>Humidity:</strong> ${humidity}%</p>
-        <p style="color: purple;"><strong>Wind Speed:</strong> ${windSpeed} km/h</p>
-        <p style="color: purple;"><strong>UV Index:</strong> ${uvIndex}</p>
-        <p style="color: purple;"><strong>Local Time:</strong> ${localTime}</p>
+        <p style="color: black;"><strong>Temperature:</strong> ${temperature}°C</p>
+        <p style="color: black;"><strong>Feels Like:</strong> ${feelsLike}°C</p>
+        <p style="color: black;"><strong>Description:</strong> ${description}</p>
+        <p style="color: black;"><strong>Humidity:</strong> ${humidity}%</p>
+        <p style="color: black;"><strong>Wind Speed:</strong> ${windSpeed} km/h</p>
+        <p style="color: black;"><strong>UV Index:</strong> ${uvIndex}</p>
+        <p style="color: black;"><strong>Local Time:</strong> ${localTime}</p>
     `;
     document.getElementById("error").innerHTML = "";  // Clear previous errors
 }

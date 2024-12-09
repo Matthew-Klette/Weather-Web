@@ -4,54 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Klette's Weather Analysis</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Inline style for specific keyframe animation */
-        .icon-container {
-            display: inline-block;
-            animation: bounce 2s infinite;
-        }
-
-        .weather-icon {
-            width: 100%;
-            max-width: 200px;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-20px);
-            }
-
-            60% {
-                transform: translateY(-10px);
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
+<div class="main"></div>
 
 <body>
     <div class="weather-app">
-        <div class="twelve">
-            <h1>Weather Application</h1>
-        </div>
+        <center>
+            <h1>Klette's Weather</h1>
 
-        <input type="text" id="cityInput" placeholder="Enter city name"><br><br>
-        <button class="button" id="searchBtn">Get Weather</button>
-
-        <div id="error"></div>
-        <div id="weather"></div>
+            <input type="text" id="cityInput" placeholder="Enter city name" />
+            <button type="button" class="btn" id="searchBtn">
+                <strong>SEARCH</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
+                </div>
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+            <div id="error"></div>
+            <div id="weather"></div>
+        </center>
     </div>
-
     <script src="main.js"></script>
 </body>
 
